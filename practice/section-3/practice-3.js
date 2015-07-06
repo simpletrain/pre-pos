@@ -9,15 +9,24 @@ function create_updated_collection(collection_a, object_b) {
       now_count = collection_a[i];
     }
     else {
-      result[result.length - 1].count++;
+      result[result.length - 1].count += 1;
     }
   }
   for (var x = 0; x < result.length; x++) {
-    for (var y = 0; y < object_b.value.length; y++) {
-      if (result[x].key === object_b.value[y]) {
-        result[x].count -= parseInt(result[x].count / 3);
-      }
+    var index = findKey(result, object_b, x);
+    if (index !== -1) {
+      result[index].count -= parseInt(result[index].count / 3);
     }
   }
   return result;
+}
+
+
+function findKey(result, object_b, x) {
+  for (var y = 0; y < object_b.value.length; y++) {
+    if (result[x].key === object_b.value[y]) {
+      return x;
+    }
+  }
+  return -1;
 }

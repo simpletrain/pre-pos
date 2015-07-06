@@ -1,36 +1,36 @@
 function count_same_elements(collection) {
   var result = [];
-  var now_count = "";
+  var nowCount = "";
   for (var i = 0; i < collection.length; i++) {
-    transfered_elements = transfer(collection[i]);
-    if (transfered_elements[0] !== now_count) {
+    transferredStr = transfer(collection[i]);
+    if (transfered_elements[0] !== nowCount) {
       result[result.length] = {};
-      result[result.length - 1].name = transfered_elements[0];
-      result[result.length - 1].summary = transfered_elements[1];
-      now_count = transfered_elements[0];
+      result[result.length - 1].name = transferredStr[0];
+      result[result.length - 1].summary = transferredStr[1];
+      nowCount = transfered_elements[0];
     }
     else {
-      result[result.length - 1].summary += transfered_elements[1];
+      result[result.length - 1].summary += transferredStr[1];
     }
   }
   return result;
 }
 
 
-function transfer(origin_elements) {
-  var transfered_str = [];
-  if (origin_elements.length === 1) {
-    transfered_str[0] = origin_elements;
-    transfered_str[1] = 1;
+function transfer(originElements) {
+  var transferredStr = [];
+  if (originElements.length === 1) {
+    transferredStr[0] = originElements;
+    transferredStr[1] = 1;
   }
   else {
-    transfered_str[0] = origin_elements[0];
-    transfered_str[1] = getNum(origin_elements);
+    transferredStr[0] = originElements[0];
+    transferredStr[1] = getNum(originElements);
   }
-  return transfered_str;
+  return transferredStr;
 }
 
-function getNum(origin_elements) {
-  new_elements = origin_elements.substr(2);
-  return parseInt(new_elements);
+function getNum(originElements) {
+  var newElements = originElements.substr(2);
+  return parseInt(newElements);
 }

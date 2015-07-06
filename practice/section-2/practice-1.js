@@ -1,15 +1,15 @@
 function count_same_elements(collection) {
   var result = [];
-  var now_count = "";
+  var nowCount = "";
   for (var i = 0; i < collection.length; i++) {
-    if (collection[i] !== now_count) {
+    if (collection[i] !== nowCount) {
       result[result.length] = {};
       result[result.length - 1].key = collection[i];
       result[result.length - 1].count = 1;
-      now_count = collection[i];
+      nowCount = collection[i];
     }
     else {
-      result[result.length - 1].count++;
+      result[result.length - 1].count += 1;
     }
   }
   return result;
