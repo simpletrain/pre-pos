@@ -1,8 +1,8 @@
-function findItem(collection_b, collection_a, i) {
+function findItem(sourceArray, keyArray, i) {
   var item;
-  for (var x = 0; x < collection_b.value.length; x++) {
-    if (collection_a[i].key === collection_b.value[x]) {
-      item = collection_a[i];
+  for (var x = 0; x < keyArray.value.length; x++) {
+    if (sourceArray[i].key === keyArray.value[x]) {
+      item = sourceArray[i].key;
       return item;
     }
   }
@@ -11,7 +11,7 @@ function findItem(collection_b, collection_a, i) {
 function collect_same_elements(collection_a, collection_b) {
   var result = [];
   for (var i = 0; i < collection_a.length; i++) {
-    var itemA = findItem(collection_b, collection_a, i);
+    var itemA = findItem(collection_a, collection_b, i);
     if (itemA) {
       result.push(itemA);
     }

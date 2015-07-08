@@ -22,29 +22,30 @@ function create_updated_collection(collection_a, object_b) {
   return result;
 }
 
-function findKey(result, object_b, x) {
-  for (var y = 0; y < object_b.value.length; y++) {
-    if (result[x].key === object_b.value[y]) {
+function findKey(sourceArray, keyObject, x) {
+  for (var y = 0; y < keyObject.value.length; y++) {
+    if (sourceArray[x].key === keyObject.value[y]) {
       return x;
     }
   }
   return -1;
 }
 
+
 function transfer(originElements) {
-  var transferredStr = [];
+  var transferringStr = [];
   if (originElements.length === 1) {
-    transferredStr[0] = originElements;
-    transferredStr[1] = 1;
+    transferringStr[0] = originElements;
+    transferringStr[1] = 1;
   }
   else {
-    transferredStr[0] = originElements[0];
-    transferredStr[1] = getNum(originElements);
+    transferringStr[0] = originElements[0];
+    transferringStr[1] = getNumber(originElements);
   }
-  return transferredStr;
+  return transferringStr;
 }
 
-function getNum(originElements) {
-  var newElements = originElements.substr(2);
+function getNumber(unreadableString) {
+  var newElements = unreadableString.substr(2);
   return parseInt(newElements);
 }

@@ -22,9 +22,9 @@ function create_updated_collection(collection_a, object_b) {
 }
 
 
-function findKey(result, object_b, x) {
-  for (var y = 0; y < object_b.value.length; y++) {
-    if (result[x].key === object_b.value[y]) {
+function findKey(sourceArray, keyObject, x) {
+  for (var y = 0; y < keyObject.value.length; y++) {
+    if (sourceArray[x].key === keyObject.value[y]) {
       return x;
     }
   }

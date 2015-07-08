@@ -1,23 +1,23 @@
-function findExactlyItem(collection_b, x, collection_a, i) {
+function findExactlyItem(sourceArray, keyArray, x, i) {
   var item;
-  for (var y = 0; y < collection_b[x].length; y++) {
-    if (collection_a[i] === collection_b[x][y]) {
-      item = collection_a[i];
+  for (var y = 0; y < keyArray[x].length; y++) {
+    if (sourceArray[i] === keyArray[x][y]) {
+      item = sourceArray[i];
       return item;
     }
   }
   return item;
 }
-function findItem(collection_b, collection_a, i) {
-  for (var x = 0; x < collection_b.length; x++) {
-    var item = findExactlyItem(collection_b, x, collection_a, i);
+function findItem(sourceArray, keyArray, i) {
+  for (var x = 0; x < keyArray.length; x++) {
+    var item = findExactlyItem(sourceArray, keyArray, x, i);
   }
   return item;
 }
 function collect_same_elements(collection_a, collection_b) {
   var result = [];
   for (var i = 0; i < collection_a.length; i++) {
-    var itemA = findItem(collection_b, collection_a, i);
+    var itemA = findItem(collection_a, collection_b, i);
     if (itemA) {
       result.push(itemA);
     }
